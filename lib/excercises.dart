@@ -13,7 +13,7 @@ const List<Map<String, dynamic>> excercises = [
     'purpose':
         'Create a provider that can be used to provide values to other parts of the app.',
     'description': '',
-    'finished': false,
+    'finished': true,
     'onOpen': ProviderExcercise()
   },
   {

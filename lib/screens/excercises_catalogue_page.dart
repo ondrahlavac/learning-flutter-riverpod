@@ -46,9 +46,14 @@ class ExcercisesCatalogue extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 10),
-                        Icon(excercises[index]['finished']
-                            ? Icons.check_circle_outline_outlined
-                            : Icons.circle_outlined),
+                        Icon(
+                          excercises[index]['finished']
+                              ? Icons.check_circle
+                              : Icons.circle_outlined,
+                          color: excercises[index]['finished']
+                              ? Colors.green
+                              : null,
+                        ),
                       ],
                     ),
                     const SizedBox(height: 10),
