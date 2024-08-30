@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:learning_flutter_riverpod/screens/about_page.dart';
 import 'package:learning_flutter_riverpod/screens/excercises_catalogue_page.dart';
 import 'package:learning_flutter_riverpod/screens/user_page.dart';
 
 void main() {
   runApp(
-    const LearningApp(),
+    const ProviderScope(
+      child: LearningApp(),
+    ),
   );
 }
 

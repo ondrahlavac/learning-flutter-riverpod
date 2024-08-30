@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:learning_flutter_riverpod/providers/user_provider.dart';
 
-class UserPage extends StatelessWidget {
+class UserPage extends ConsumerWidget {
   const UserPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage('assets/images/avatar-guy.png'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
-              'John Doe',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ref.watch(currentUserProvider),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               'Software Engineer',
               style: TextStyle(fontSize: 16),
             ),
