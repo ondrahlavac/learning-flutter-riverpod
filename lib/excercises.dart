@@ -20,7 +20,7 @@ const List<Map<String, dynamic>> excercises = [
     'name': 'Consumer',
     'purpose': 'Consume a provider\'s value within a widget.',
     'description': '',
-    'finished': false,
+    'finished': true,
     'onOpen': ConsumerExcercise()
   },
   {
