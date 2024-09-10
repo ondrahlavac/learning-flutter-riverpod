@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:learning_flutter_riverpod/screens/about_page.dart';
-import 'package:learning_flutter_riverpod/screens/excercises_catalogue_page.dart';
+import 'package:learning_flutter_riverpod/screens/excercises_page.dart';
 import 'package:learning_flutter_riverpod/screens/user_page.dart';
+import 'package:learning_flutter_riverpod/theme/theme.dart';
 
 void main() {
   runApp(
-    const ProviderScope(
-      child: LearningApp(),
-    ),
+    const LearningApp(),
   );
 }
 
@@ -20,7 +18,7 @@ class LearningApp extends StatefulWidget {
 }
 
 class _LearningAppState extends State<LearningApp> {
-  int _selectedIndex = 0;
+  int _selectedPageIndex = 0;
 
   final List<NavigationDestination> _navigationDestinations = const [
     NavigationDestination(icon: Icon(Icons.list), label: 'Catalogue'),
@@ -31,14 +29,14 @@ class _LearningAppState extends State<LearningApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
-      ),
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SafeArea(
           child: IndexedStack(
-            index: _selectedIndex,
+            index: _selectedPageIndex,
             children: const <Widget>[
               ExcercisesCatalogue(),
               UserPage(),
@@ -47,10 +45,10 @@ class _LearningAppState extends State<LearningApp> {
           ),
         ),
         bottomNavigationBar: NavigationBar(
-          selectedIndex: _selectedIndex,
+          selectedIndex: _selectedPageIndex,
           onDestinationSelected: (index) {
             setState(() {
-              _selectedIndex = index;
+              _selectedPageIndex = index;
             });
           },
           destinations: _navigationDestinations,

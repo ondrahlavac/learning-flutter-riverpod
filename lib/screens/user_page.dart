@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:learning_flutter_riverpod/providers/user_provider.dart';
 
 class UserPage extends ConsumerWidget {
   const UserPage({super.key});
@@ -18,7 +17,7 @@ class UserPage extends ConsumerWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              ref.watch(currentUserProvider),
+              'John Doe',
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             const SizedBox(height: 10),

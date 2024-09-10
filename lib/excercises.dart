@@ -1,69 +1,53 @@
-import 'package:learning_flutter_riverpod/screens/excercises/consumer.dart';
-import 'package:learning_flutter_riverpod/screens/excercises/family_like_in_dating.dart';
-import 'package:learning_flutter_riverpod/screens/excercises/future_provider.dart';
-import 'package:learning_flutter_riverpod/screens/excercises/provider.dart';
-import 'package:learning_flutter_riverpod/screens/excercises/provider_llistener.dart';
-import 'package:learning_flutter_riverpod/screens/excercises/selector.dart';
-import 'package:learning_flutter_riverpod/screens/excercises/state_notifier_provider.dart';
-import 'package:learning_flutter_riverpod/screens/excercises/stream_provider.dart';
-
-const List<Map<String, dynamic>> excercises = [
-  {
+const Map<String, Map<String, dynamic>> excercises = {
+  'provider': {
     'name': 'Provider',
     'purpose':
         'Create a provider that can be used to provide values to other parts of the app.',
     'description': '',
-    'finished': true,
-    'onOpen': ProviderExcercise()
+    'finished': false,
   },
-  {
-    'name': 'Consumer',
-    'purpose': 'Consume a provider\'s value within a widget.',
-    'description': '',
-    'finished': true,
-    'onOpen': ConsumerExcercise()
-  },
-  {
-    'name': 'Provider Listener',
-    'purpose':
-        'Listen to changes in a provider\'s value and perform actions based on those changes.',
+  'state-provider': {
+    'name': 'State Provider',
+    'purpose': '',
     'description': '',
     'finished': false,
-    'onOpen': ProviderListenerExcercise()
   },
-  {
-    'name': 'Selector',
-    'purpose': 'Derive new values from existing providers.',
-    'description': '',
-    'finished': false,
-    'onOpen': SelectorExcercise()
-  },
-  {
+  'state-notifier-provider': {
     'name': 'State Notifier Provider',
-    'purpose': 'Create a provider that manages state using a StateNotifier.',
+    'purpose':
+        'Create a provider that manages state using a StateNotifierProvider.',
     'description': '',
     'finished': false,
-    'onOpen': StateNotifierProviderExcercise()
   },
-  {
-    'name': 'Future Provider',
-    'purpose': 'Create a provider that asynchonously loads data.',
-    'description': '',
+  'change-notifier-provider': {
+    'name': 'Change Notifier Provider',
+    'purpose': 'TODO',
+    'description': 'TODO',
     'finished': false,
-    'onOpen': FutureProviderExcercise()
   },
-  {
+  'stream-provider': {
     'name': 'Stream Provider',
-    'purpose': 'Create a provider that listens to a stream.',
-    'description': '',
+    'purpose': 'Create and use a provider that listens to a stream.',
+    'description': 'TODO',
     'finished': false,
-    'onOpen': StreamProviderExcercise()
   },
-  {
-    'name': 'Family',
-    'purpose': 'Create a family of providers, each with a unique key.',
-    'description': '',
+  'future-provider': {
+    'name': 'Future Provider',
+    'purpose': 'Create and use a provider that asynchonously loads data.',
+    'description': 'TODO',
     'finished': false,
-    'onOpen': FamilyExcercise()
   },
-];
+  'scoped-provider': {
+    'name': 'Scoped Provider',
+    'purpose': 'TODO',
+    'description': 'TODO',
+    'finished': false,
+  },
+  'selector': {
+    'name': 'Selector',
+    'purpose': 'Use a selector to only watch a specific part of a state.',
+    'description':
+        'In Riverpod, a Selector is a method used to optimize state reading by focusing only on specific parts of the state instead of the entire state object. This helps reduce unnecessary rebuilds of widgets by ensuring that they only rebuild when the specific part of the state they depend on changes.',
+    'finished': false,
+  },
+};
