@@ -1,10 +1,17 @@
-const Map<String, Map<String, dynamic>> excercises = {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final excercisesProvider = Provider<Map<String, Map<String, dynamic>>>((ref) {
+  return _excercises;
+});
+
+const Map<String, Map<String, dynamic>> _excercises = {
   'provider': {
     'name': 'Provider',
     'purpose':
         'Create a provider that can be used to provide values to other parts of the app.',
-    'description': '',
-    'finished': false,
+    'description':
+        'Basic provider is good for static values. So we wrapped the excercises List in a Provider.',
+    'finished': true,
   },
   'state-provider': {
     'name': 'State Provider',
