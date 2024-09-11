@@ -21,17 +21,20 @@ const Map<String, Map<String, dynamic>> _exercises = {
         'State Provider is the simplest way to make a simple state not only readable but also updateable from the Widgets. In our exercise, we updatet the bottom navigation to use a selectedPageProvider.',
     'finished': true,
   },
+  'change-notifier-provider': {
+    'name': 'Change Notifier Provider',
+    'purpose':
+        'Create a provider that manages simple state without complex logic or async operations.',
+    'description':
+        'Change Notifier Provider is the simpler one of the pair of "Notifiers." Since it is good for straightforward and managable states, we\'ll use it to handle the selected theme of the app.',
+    'finished': false,
+  },
   'state-notifier-provider': {
     'name': 'State Notifier Provider',
     'purpose':
-        'Create a provider that manages state using a StateNotifierProvider.',
-    'description': '',
-    'finished': false,
-  },
-  'change-notifier-provider': {
-    'name': 'Change Notifier Provider',
-    'purpose': 'TODO',
-    'description': 'TODO',
+        'Create a provider that manages complex state with additional logic.',
+    'description':
+        'State Notifier Provider provides a comprehensive and efficient way to manage complex state with clean separation of state and logic. We\'ll use it to handle the state of user model.',
     'finished': false,
   },
   'stream-provider': {
