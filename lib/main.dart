@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:learning_flutter_riverpod/providers/selected_page_provider.dart';
 import 'package:learning_flutter_riverpod/screens/about_page.dart';
 import 'package:learning_flutter_riverpod/screens/exercises_page.dart';
 import 'package:learning_flutter_riverpod/screens/user_page.dart';
@@ -13,15 +14,8 @@ void main() {
   );
 }
 
-class LearningApp extends StatefulWidget {
+class LearningApp extends ConsumerWidget {
   const LearningApp({super.key});
-
-  @override
-  State<LearningApp> createState() => _LearningAppState();
-}
-
-class _LearningAppState extends State<LearningApp> {
-  int _selectedPageIndex = 0;
 
   final List<NavigationDestination> _navigationDestinations = const [
     NavigationDestination(icon: Icon(Icons.list), label: 'Catalogue'),
@@ -30,7 +24,8 @@ class _LearningAppState extends State<LearningApp> {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedPageIndex = ref.watch(selectedPageProvider);
     return MaterialApp(
       theme: lightTheme,
       darkTheme: darkTheme,
@@ -39,7 +34,7 @@ class _LearningAppState extends State<LearningApp> {
       home: Scaffold(
         body: SafeArea(
           child: IndexedStack(
-            index: _selectedPageIndex,
+            index: selectedPageIndex,
             children: const <Widget>[
               ExercisesCatalogue(),
               UserPage(),
@@ -48,11 +43,9 @@ class _LearningAppState extends State<LearningApp> {
           ),
         ),
         bottomNavigationBar: NavigationBar(
-          selectedIndex: _selectedPageIndex,
+          selectedIndex: selectedPageIndex,
           onDestinationSelected: (index) {
-            setState(() {
-              _selectedPageIndex = index;
-            });
+            ref.read(selectedPageProvider.notifier).state = index;
           },
           destinations: _navigationDestinations,
         ),

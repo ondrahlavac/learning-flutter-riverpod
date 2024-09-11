@@ -15,9 +15,11 @@ const Map<String, Map<String, dynamic>> _exercises = {
   },
   'state-provider': {
     'name': 'State Provider',
-    'purpose': '',
-    'description': '',
-    'finished': false,
+    'purpose':
+        'Create a provider that makes a simple state available to read and update.',
+    'description':
+        'State Provider is the simplest way to make a simple state not only readable but also updateable from the Widgets. In our exercise, we updatet the bottom navigation to use a selectedPageProvider.',
+    'finished': true,
   },
   'state-notifier-provider': {
     'name': 'State Notifier Provider',
