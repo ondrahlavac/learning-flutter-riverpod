@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:learning_flutter_riverpod/excercises.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:learning_flutter_riverpod/providers/excercises_provider.dart';
+import 'package:learning_flutter_riverpod/screens/excercise_detail.dart';
 
-class ExcercisesCatalogue extends StatelessWidget {
+class ExcercisesCatalogue extends ConsumerWidget {
   const ExcercisesCatalogue({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    Map<String, Map<String, dynamic>> excercises =
+        ref.watch(excercisesProvider);
+
     return Scaffold(
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -19,7 +24,14 @@ class ExcercisesCatalogue extends StatelessWidget {
           return Card(
             child: InkWell(
               onTap: () {
-                // Navigate to the corresponding excercise screen
+                // onTap open the excercise detail screen
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ExcerciseDetail(
+                      excerciseKey: currentKey,
+                    ),
+                  ),
+                );
               },
               child: Padding(
                 padding: const EdgeInsets.all(10),
