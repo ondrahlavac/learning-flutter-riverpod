@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final excercisesProvider = Provider<Map<String, Map<String, dynamic>>>((ref) {
-  return _excercises;
+final exercisesProvider = Provider<Map<String, Map<String, dynamic>>>((ref) {
+  return _exercises;
 });
 
-const Map<String, Map<String, dynamic>> _excercises = {
+const Map<String, Map<String, dynamic>> _exercises = {
   'provider': {
     'name': 'Provider',
     'purpose':

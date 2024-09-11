@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:learning_flutter_riverpod/providers/excercises_provider.dart';
+import 'package:learning_flutter_riverpod/providers/exercises_provider.dart';
 
-class ExcerciseDetail extends ConsumerWidget {
-  final String excerciseKey;
+class ExerciseDetail extends ConsumerWidget {
+  final String exerciseKey;
 
-  const ExcerciseDetail({super.key, required this.excerciseKey});
+  const ExerciseDetail({super.key, required this.exerciseKey});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Map<String, Map<String, dynamic>> excercises =
-        ref.watch(excercisesProvider);
-    Map<String, dynamic> currentExcercise = excercises[excerciseKey]!;
+    Map<String, Map<String, dynamic>> exercises = ref.watch(exercisesProvider);
+    Map<String, dynamic> currentExercise = exercises[exerciseKey]!;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(currentExcercise['name']),
+        title: Text(currentExercise['name']),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -23,7 +22,7 @@ class ExcerciseDetail extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              currentExcercise['purpose'],
+              currentExercise['purpose'],
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -31,7 +30,7 @@ class ExcerciseDetail extends ConsumerWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              currentExcercise['description'],
+              currentExercise['description'],
               style: const TextStyle(fontSize: 16),
             ),
           ],

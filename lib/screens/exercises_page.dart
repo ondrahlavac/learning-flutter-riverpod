@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:learning_flutter_riverpod/providers/excercises_provider.dart';
-import 'package:learning_flutter_riverpod/screens/excercise_detail.dart';
+import 'package:learning_flutter_riverpod/providers/exercises_provider.dart';
+import 'package:learning_flutter_riverpod/screens/exercise_detail.dart';
 
-class ExcercisesCatalogue extends ConsumerWidget {
-  const ExcercisesCatalogue({super.key});
+class ExercisesCatalogue extends ConsumerWidget {
+  const ExercisesCatalogue({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    Map<String, Map<String, dynamic>> excercises =
-        ref.watch(excercisesProvider);
+    Map<String, Map<String, dynamic>> excercises = ref.watch(exercisesProvider);
 
     return Scaffold(
       body: GridView.builder(
@@ -27,8 +26,8 @@ class ExcercisesCatalogue extends ConsumerWidget {
                 // onTap open the excercise detail screen
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ExcerciseDetail(
-                      excerciseKey: currentKey,
+                    builder: (context) => ExerciseDetail(
+                      exerciseKey: currentKey,
                     ),
                   ),
                 );
@@ -46,7 +45,7 @@ class ExcercisesCatalogue extends ConsumerWidget {
                         Expanded(
                           child: Text(
                             excercises[currentKey]?['name'] ??
-                                'No excercise name specified',
+                                'No exercise name specified',
                             style: const TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
@@ -67,7 +66,7 @@ class ExcercisesCatalogue extends ConsumerWidget {
                     const SizedBox(height: 10),
                     Text(
                       excercises[currentKey]?['purpose'] ??
-                          'No excercise purpose specified',
+                          'No exercise purpose specified',
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ],

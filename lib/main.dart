@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:learning_flutter_riverpod/screens/about_page.dart';
-import 'package:learning_flutter_riverpod/screens/excercises_page.dart';
+import 'package:learning_flutter_riverpod/screens/exercises_page.dart';
 import 'package:learning_flutter_riverpod/screens/user_page.dart';
 import 'package:learning_flutter_riverpod/theme/theme.dart';
 
@@ -41,7 +41,7 @@ class _LearningAppState extends State<LearningApp> {
           child: IndexedStack(
             index: _selectedPageIndex,
             children: const <Widget>[
-              ExcercisesCatalogue(),
+              ExercisesCatalogue(),
               UserPage(),
               AboutPage(),
             ],
