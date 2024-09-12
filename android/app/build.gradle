@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.learning_flutter_riverpod"
+    namespace = "cz.hlavac.ondra.learning_flutter_riverpod"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,13 +21,27 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.learning_flutter_riverpod"
+        applicationId = "cz.hlavac.ondra.learning_flutter_riverpod"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+    }
+    
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            // Run the git info script before assembling the APK
+            def gitInfoTask = tasks.create(name: "getGitInfoFor${variant.name.capitalize()}", type: Exec) {
+                workingDir "$projectDir"
+                // println("\n\n ---> Project dir: $projectDir")
+                // println("\n\n ---> Working dir: $workingDir\\get_git_info.bat")
+                commandLine "$workingDir\\get_git_info.bat" 
+            }
+            // Make the APK depend on the task
+            output.assemble.dependsOn gitInfoTask 
+        }
     }
 
     buildTypes {

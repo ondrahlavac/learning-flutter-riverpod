@@ -1,4 +1,4 @@
-package com.example.learning_flutter_riverpod
+package cz.hlavac.ondra.learning_flutter_riverpod
 
 import io.flutter.embedding.android.FlutterActivity
 

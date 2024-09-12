@@ -41,3 +41,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# This file will be generated on each build, there is no need to keep it in git
+lib/git_info.dart
