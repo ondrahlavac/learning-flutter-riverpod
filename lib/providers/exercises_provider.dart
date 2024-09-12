@@ -24,10 +24,10 @@ const Map<String, Map<String, dynamic>> _exercises = {
   'change-notifier-provider': {
     'name': 'Change Notifier Provider',
     'purpose':
-        'Create a provider that manages simple state without complex logic or async operations.',
+        'Create a provider that manages simple state without complex logic.',
     'description':
-        'Change Notifier Provider is the simpler one of the pair of "Notifiers." Since it is good for straightforward and managable states, we\'ll use it to handle the selected theme of the app.',
-    'finished': false,
+        'Change Notifier Provider is the simpler one of the pair of "Notifiers." Since it is good for straightforward and managable states, we\'ll use it to handle the selected theme of the app. The theme can be changed in the about section.',
+    'finished': true,
   },
   'state-notifier-provider': {
     'name': 'State Notifier Provider',
