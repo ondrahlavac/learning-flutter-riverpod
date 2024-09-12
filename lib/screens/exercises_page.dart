@@ -46,10 +46,7 @@ class ExercisesCatalogue extends ConsumerWidget {
                           child: Text(
                             excercises[currentKey]?['name'] ??
                                 'No exercise name specified',
-                            style: const TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                         ),
                         const SizedBox(width: 10),
